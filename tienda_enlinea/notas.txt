@@ -1,0 +1,61 @@
+clase 3
+Instalacion de django
+pip install Django==2.2.3 > instalando django
+django-admin startproject tienda_onlie > crear un proyecto
+python manage.py runserver > correr el server
+
+
+clase 4
+hola mnundo
+declarando la funcion index asociada a una url para respuesta por parte de un cliente
+
+
+clase 5
+Renderizar template = archivos html
+definimos el folder templaes en el config
+la modificamos en las urls
+cambiamos la funcion en la vista
+
+
+clase 6
+Integración con bootstrap
+copiamos los css y los js desde el sitio web de bootstrap
+
+
+clase 7
+Contexto en Django
+los contextos se definen en la vista, no son mas que variables que se pueden usar en el template
+
+
+clase 8
+Ciclos y condicionales
+funcionamiento de los ciclos 
+{{ variable }}
+{% for %}
+{% endfor % }
+{# este es un comentario #}
+
+
+clase 9
+Archivos estaticos
+crear folder
+modificar el settings crear una variable constante que define la ruta del folder "static"
+se carga en index el load static
+
+
+clase 10
+super usuario
+crear las migraciones > python manage.py migrate
+python manage.py create superuser
+
+
+
+clase 11
+Formulario Login
+quede en el minuto 2:14
+
+
+
+
+
+
