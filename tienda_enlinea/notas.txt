@@ -52,7 +52,81 @@ python manage.py create superuser
 
 clase 11
 Formulario Login
-quede en el minuto 2:14
+obteniendo los valores del Formulario
+username
+password
+
+
+
+clase 12
+Autenticación
+
+usamos authenticate y login de django
+la funcion authenticate buscara en BD un usuario y contraseña existente, luego se preguntara
+si user usando login pasandole los argumentos request, user. si esto es cierto sera cierto si no sera falso
+
+
+
+clase 13
+Redirect
+
+
+clase 14
+Mensajes
+si existe el Mensajes
+condicionales con success
+
+
+clase 15
+Condicionar clases
+se refactorizo el formulario 
+
+
+clase 16
+Logout
+se añadio otra url y la funcion Logout
+
+
+
+clase 17
+Formulario de Django
+
+clase 18
+Estilos en los formularios
+
+clase 19 
+Itereacion de campos
+
+
+clase 20
+Leer datos del formulario
+
+
+example:
+form = RegisterForm({
+        'username': 'carlos',
+        'email':'carlos@gmail.com'
+        }) 
+
+clase 21
+crear usuario
+Modelo User
+
+
+clase 22 
+validar campos
+campo username
+campo email
+
+
+
+
+
+
+
+
+
+
 
 
 
