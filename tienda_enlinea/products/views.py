@@ -46,18 +46,26 @@ class ProductSearchListView(ListView):
     # consulta de busqueda por titulo y compara con valor de "q" que esta en el queryset
     # comparacion con la busqueda, busqueda por titulo
     #1
+                 #CONSULTA DE BUSQUEDA
     def get_queryset(self):
-        return Product.objects.filter(title=self.query())
+        
+        #query SQL = SELECT * FROM products WHERE title like %valor%
+        #i = indica que NO es sensible para M o m
+        return Product.objects.filter(title__icontains=self.query())
     
     #2
     def query(self):
         return self.request.GET.get('q')
     
+    # para acceder al valor de la busqueda escrita en la barra de busqueda.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
-        context['query'] = self.query()  #--> 
+        context['query'] = self.query()
         
-        print(context)
+        #traer la cantidad de elementos, traemos la cantidad de elementos y luego lo contamos
+        context['count'] = context['product_list'].count() #--> 
+        
+        return context
         
         print(context)
     

@@ -5,18 +5,12 @@
     <!-- usando la 'message' variable del contexto desde la vista-->
       <h4 class="text-center"> {{ message }}</h4>  
       
-      <!-- Incluydendo la barra de busqueda -->
+      <!-- Incluydendo la barra de-->
       {% include 'products/snippets/search.html'%}
 
-      <div class="row"> 
-        {% for product in object_list %} <!-- Se declara de variable product object_list(llave que se obtiene del QuerySet) --- muestra el listado del producto-->
-            <div class="col-3 mt-5">
+      <!-- Mostrar la busaueda de elementos-->
+      {% include 'products/snippets/list.html'%}
 
-                <!-- llamando desde el template del snippets-->
-                {% include 'products/snippets/product.html' %}
-                
-            </div>   
-        {% endfor %}
       </div>
     </div>
 {% endblock %}

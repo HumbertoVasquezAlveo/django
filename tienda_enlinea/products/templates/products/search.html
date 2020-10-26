@@ -1,11 +1,19 @@
-<!-- Busqueda de Producto-->
+<!-- Ver la Busqueda de Producto-->
 
 {% extends 'base.html' %}
 
 {% block content %}
     <div class="col">
+        
+        <!-- Mostrar la barra de busqueda-->
         {% include 'products/snippets/search.html' with query=query %}
-        <hr>
-        <p>Resultados para : {{ query }}</p>
+        
+        <!-- query . lo que se esta buscando en la barra representada por la letra q-->
+        <p>Resultados para : {{ query }} ({{ count }})</p>
+
+        <!-- Mostrar la busaueda de elementos-->
+        {% include 'products/snippets/list.html'%}
+
+        </div>
     </div>
 {% endblock %}

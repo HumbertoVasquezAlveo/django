@@ -184,6 +184,9 @@ python manage.py startapp products
 --Snippets
 
 -- Buscador de productos
+search Snippets = formulario, eenvia la informacion.
+Nueva ruta 'search' ejecuta la clase ProductSearchListView, ella hace la consulta
+sobreescribe el metodo QuerySet
 
 
 

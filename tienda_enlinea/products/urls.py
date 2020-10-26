@@ -8,6 +8,8 @@ from . import views
 
 
 urlpatterns = [
+    
+    # colocamos primero la URL de la busqueda de productos
     path('search', views.ProductSearchListView.as_view(), name="search"),
     
     # Vista que permite buscar desde el valor (q) en el queryset
