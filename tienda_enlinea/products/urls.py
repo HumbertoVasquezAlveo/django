@@ -6,6 +6,8 @@ from django.urls import path
 #Views 
 from . import views
 
+#Indicamos que pertenece a esta aplicacion
+app_name = 'products'
 
 urlpatterns = [
     

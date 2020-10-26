@@ -196,7 +196,21 @@ ir a settings.py y registrar la nueva App
 Se creara una relacion muchos a muchos entre los dos modelos (Product, Categories)
 
 
+--Busquedas por multiples filtros
 
+-- Respaldo de informacion
+
+python manage.py dumpdata = muestra toda la informacion del proyecto
+python manage.py dumpdata products.product = nombre de la aplicacion y del modelo
+python manage.py dumpdata products.product --format=json = formato
+python manage.py dumpdata products.product --format=json --indent=4 = formato
+
+realizar una copia en JSON 
+    python manage.py dumpdata products.product --format=json --indent=4 >
+    products/fixtures/products.json
+
+recuperar en base al respaldo JSON
+    python manage.py loaddata products.json
 
 
 
