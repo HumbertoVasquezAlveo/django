@@ -1,0 +1,40 @@
+<!-- generar variables para las urls-->
+
+{% url 'login' as login %}
+{% url 'register' as register %}
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a href="#" class="navbar-left"><img src="/static/images/logo9.gif" height="100"></a>
+
+    <a href="#" class="navbar-brand">Santa Cruz Skateboard</a>
+
+    <button type="button" name="button" class="navbar-toggler navbar-toggler-righ" data-toggle="collapse" data-target="#navb">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navb" class="navbar-collapse collapse hide">
+
+        <ul class="nav navbar-nav ml-auto">
+
+           <!-- saber si el usuario se encuentra autenticado o no , usando el Objeto user--> 
+           {% if user.is_authenticated %} 
+            <li class="navbar-item">
+              <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+            </li>
+
+           {% else %}   
+
+            <li class="navbar-item {% if request.path == login %}active{% endif %}">
+              <a href="{{ login }}" class="nav-link">
+                <span class="fas fa-user"></span>
+                  Login</a>
+
+            </li>
+            <li class="navbar-item {% if request.path == register %}active{% endif %}">
+              <a href="{{ register }}" class="nav-link">Registro</a>
+            </li>
+
+           {% endif %}     
+        </ul>
+    </div>
+</nav>

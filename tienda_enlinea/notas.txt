@@ -3,6 +3,7 @@ Instalacion de django
 pip install Django==2.2.3 > instalando django
 django-admin startproject tienda_onlie > crear un proyecto
 python manage.py runserver > correr el server
+python manage.py createsuperuser > crear un super usuario
 
 
 clase 4
@@ -117,6 +118,84 @@ clase 22
 validar campos
 campo username
 campo email
+
+
+clase 23
+validar campos2
+
+
+clase 24 
+Metodo save creado en forms.py
+y llamandolo dese la vista desde la funcion Register
+
+
+TEMPLATES
+clase 25
+Herencia de templates
+
+clase 26
+includes
+
+
+clase Modelo de productos
+
+<----  MODELOS  ----->
+crear una aplicacion
+python manage.py startapp products
+
+
+
+--Administrar Modelos en el Administrador.
+  Registrar el Modelo de producto en el Admin.
+
+
+-- Shell de Django
+    QuerySet
+    Product.objects.get(id=1)
+    Product.objects.all()
+    Product.objects.all().count()
+
+    cambio del atributo "description"
+    product1.description = 'Cambio de descripcion'
+    product1.save()
+    
+    trabajar el ORM de Django
+
+    Product.objects.filter(price=20.0).first() --> retorna el primer elemento
+    Product.objects.filter(price=20.0).last()  --> retorna el ultimo elemento
+    Product.objects.filter(price=20.0).count()  --> retorna una cuenta
+    Product.objects.filter(price=20.0).exists()  --> retorna si existe uno o mas
+
+--Listado de productos
+    
+
+--clase ProductList --> Muestra los productos en el template objenidos desde el QuerySet
+--clase DetailView  --> 
+
+--Slug --> Se definen en el modelo de la aplicacion, luego se hace la migracion.
+
+--Pre save   -> uso de los callbacks
+  Uso de los Signal __ Signa = pre_save
+
+-- Slug unicos
+
+-- Imagenes
+
+--Snippets
+
+-- Buscador de productos
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

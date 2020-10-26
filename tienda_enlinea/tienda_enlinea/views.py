@@ -12,9 +12,14 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User 
 
 from .forms import RegisterForm
+from products.models import Product
 
 #request parametro
 def index(request):
+    
+    # Muestra los productos y como se muestra
+    products = Product.objects.all().order_by('-id')
+    
     #tres argumentos, = la peticion, el template y el template
     return render(request,'index.html',{
         
@@ -22,15 +27,14 @@ def index(request):
         #puedo usar la variable message desde el template
         'message':'Lista de productos',
         'title' : 'Productos',    
-        'products': [
-            {'title':'Playera','price':5, 'stock': True},
-            {'title':'Camisa','price':10, 'stock': True},
-            {'title':'Mochila','price':20, 'stock': False},
-        ]
+        'products': products,
     })
  
 #request es la peticion   
 def login_view(request):
+    
+    if request.user.is_authenticated:
+        return redirect('index')
     #print(request.method)
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -58,6 +62,11 @@ def logout_view(request):
 
 
 def register(request):
+    
+    # validacion para bloquear
+    if request.user.is_authenticated:
+        return redirect('index')
+    
     # por defecto este dato (clase RegisterForm) viene vacio, lo podemos forzar creando un diccionario con datos
     #instancia del formulario
     
@@ -66,20 +75,15 @@ def register(request):
     
     # permite conocer si la informacion es valida (si es por metodo POST y es valiudo toma los atributos de nuestro formulario)
     if request.method == 'POST' and form.is_valid():
-        username = form.cleaned_data.get('username')
-        email = form.cleaned_data.get('email')
-        password = form.cleaned_data.get('password')
         
         #usando el modelo de usuario User de django
-        user = User.objects.create_user(username, email, password)
+        #llamando al metodo save
+        user = form.save()
         if user:
             login(request, user)
             messages.success(request, 'Usuario creado exitosamente')
             return redirect('index')
-                
-        print(username)
-        print(email)
-        print(password)    
+        
     #condicionar
     
     return render(request, 'users/register.html', {

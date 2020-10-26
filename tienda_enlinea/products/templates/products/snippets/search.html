@@ -1,0 +1,13 @@
+
+<!-- Creando la barra de busqueda-->
+
+<form action={% url 'search' %}> 
+    <div class="input-group">
+        <!-- apartir de la llave (q) buscaremos en el queyset , con ese titulo--> 
+        <input type="text" name="q" value="{{ query }}" class="form-control" placeholder="Buscar">
+        <div class="input-group-append">
+            <input type="submit" name="" value="Buscar" class="btn btn-primary">
+        </div>
+    </div>
+</form>
+

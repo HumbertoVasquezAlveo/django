@@ -1,0 +1,11 @@
+<!-- Busqueda de Producto-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="col">
+        {% include 'products/snippets/search.html' with query=query %}
+        <hr>
+        <p>Resultados para : {{ query }}</p>
+    </div>
+{% endblock %}

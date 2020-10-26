@@ -1,0 +1,15 @@
+<!-- Snippets que muestra los datos de los productos-->
+
+<div class="card h-100">
+
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="imagen del producto" height="300">
+    {% endif %}
+
+    <div class="car-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <a href="#" class="btn btn-primary">Ver más</a>
+
+    </div>
+</div>

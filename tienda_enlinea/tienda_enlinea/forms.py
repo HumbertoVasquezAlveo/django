@@ -29,6 +29,14 @@ class RegisterForm(forms.Form):
                                    'class':'form-control',
                                }))
 
+    # Verificacion del password
+    password2 = forms.CharField(label='Verification Password',
+                                required=True,
+                                widget=forms.PasswordInput(attrs={
+                                    'class' : 'form-control'
+                                }))
+    
+    
     #prefijo clean_username   
     def clean_username(self):
         
@@ -50,4 +58,16 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError('Este correo ya se encuentra en uso')
         return email
     
-      
+    # Sobreescribiendo el metodo clean(usar cuando dependa un atributo de otro)
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        if cleaned_data.get('password2') != cleaned_data.get('password'):
+            self.add_error('password2' , 'El password no coincide')
+          
+    def save(self):
+        return User.objects.create_user(
+            self.cleaned_data.get('username'),
+            self.cleaned_data.get('email'),
+            self.cleaned_data.get('password'),
+        )
