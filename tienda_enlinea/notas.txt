@@ -189,7 +189,11 @@ Nueva ruta 'search' ejecuta la clase ProductSearchListView, ella hace la consult
 sobreescribe el metodo QuerySet
 
 
+--Relacion muchos a muchos
+python manage.py startapp categories
+ir a settings.py y registrar la nueva App
 
+Se creara una relacion muchos a muchos entre los dos modelos (Product, Categories)
 
 
 

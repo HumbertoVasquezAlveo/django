@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'products',  #--> le indicamos a python que podemos hacer uso de la aplicacion Products
+    'categories',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
