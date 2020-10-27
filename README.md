@@ -1,1 +1,1 @@
-### curso de django 👽
+### curso django 👽
