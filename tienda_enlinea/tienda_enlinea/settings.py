@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
     'products',  #--> le indicamos a python que podemos hacer uso de la aplicacion Products
     'categories',
     'django.contrib.admin',
@@ -52,6 +53,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'tienda_enlinea.urls'
+
+#Para que las autenticaciones sigan funcionando(le decimos a django que utilizaremos el modelo User creado por nosotros)
+#no el por el defecto AUTH_USER_MODEL
+# users = nombre de aplicacion y el modelo
+AUTH_USER_MODEL = 'users.User'
+
 
 TEMPLATES = [
     {

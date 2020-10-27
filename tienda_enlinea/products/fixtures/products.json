@@ -1,0 +1,50 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Classic Dot Vest Vest Mens",
+        "description": "Nothing beats a Classic! The Classic Dot vest by Santa Cruz Skateboards is here and ready to rip. This regular fit water and wind resistant hyper loft quilted puffy vest features a fitted collar, set-in zipper hand pockets, interior chest pocket and a front Santa Cruz Classic dot logo embroidery.",
+        "price": "67.95",
+        "slug": "classic-dot-vest-vest-mens",
+        "image": "products/Classic_Dot_Vest_Vest_Mens.PNG",
+        "created_at": "2020-08-21T18:41:38.095Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "7.75in x 31.61in Classic Dot Santa Cruz Skateboard",
+        "description": "7 ply North American Maple pressed individually using epoxy making a strong, responsive deck with long lasting pop and consistent concave and kick.",
+        "price": "57.95",
+        "slug": "775in-x-3161in-classic-dot-santa-cruz-skateboard",
+        "image": "products/Capturatet.PNG",
+        "created_at": "2020-08-21T20:18:29.867Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Group Dot Santa Cruz Mens Hooded Windbreaker Jacke",
+        "description": "Get ready, here comes a collage of all the iconic redesigns of the \"Classic Dot!\" The Group Dot collection is here and ready to rock. The Group Dot regular fit lightweight unlined zip hooded windbreaker comes built with a zip front opening, water resistant coating, set-in single welt hand pockets, small front and features large back soft hand ink logo print of the classic Japanese Dot, Flame Dot and Moon Dot Santa Cruz logos. Available in black and navy.",
+        "price": "56.43",
+        "slug": "group-dot-santa-cruz-mens-hooded-windbreaker-jacke",
+        "image": "products/SC_GroupDot_AnorakJacket_ClassicNavy_Front_448x448.jpg",
+        "created_at": "2020-08-21T20:22:50.666Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Seeker Santa Cruz Mens Hooded Windbreaker Jacket",
+        "description": "Stay warm on the session with new hoodie and jacket styles from Santa Cruz Skateboards. The Seeker regular fit zip front hooded windbreaker jacket, fabric is stretch lightweight shell with water resistant coating and mesh lining, shaped scuba neck and storm flap front closure, set in welt hand pockets and front chest MFG Dot woven patch logo. Available in camo.",
+        "price": "0.00",
+        "slug": "seeker-santa-cruz-mens-hooded-windbreaker-jacket",
+        "image": "products/SC_Seeker_HoodedWinbreaker_Camo_Front_448x448.jpg",
+        "created_at": "2020-08-21T20:23:40.385Z"
+    }
+}
+]

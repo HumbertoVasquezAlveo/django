@@ -213,14 +213,65 @@ recuperar en base al respaldo JSON
     python manage.py loaddata products.json
 
 
+TEMA 5 USUARIOS
+--Proxy Model 
+Es un modelo que ereda de otro
+No generar nuevas tablas en la Base de datos
+
+QuerySet
+customer = Customer.objects.get(pk=1)
+
+Relacion Uno a Uno - OneToOneField
+obtener mi usuario en el SHELL
+    from django.contrib.auth.models import User
+    user = User.objects.get(pk=1)
+    profile = Profile.objects.create(user=user, bio='Desarrollador de software')
+    user.profile
+    user.profile.bio
+    profile.user.username
+
+Usar Proxy Model cuando tengamos que extender nuevas funcionalidades
+Uno a uno cuando queramos generar nuevos atributos a nuestro modelo
+
+En el ejemplo de arriba se queria agregar al usuario el atributo BIO, para agregar su biografia.
 
 
 
+--Usuarios Abstractos
+AbstractUser (Atributos a utilizar)
+
+first_name
+last_name
+email
+password
+groups
+user_persissions
+is_staff
+is_active
+is_superuser
+last_login
+date_joined
+
+AbstracBaseUser (Atributos a utilizar)
+id
+password
+last_login
+
+ejemplos del uso de la shell en Django:
+Usando el Modelo de usuario Abstracto
+cargar primero el modelo User
+    from users.models import User
+    User.objects.all()
+    <QuerySet [<User: humberto>, <User: humberto2>]>
+    User.objects.all().first()
+    User.objects.all().last()
+    User.objects.all().last().get_full_name()
+    User.objects.first().get_full_name()
+
+cuando se cambia el modelo User por el creado propio se debe cambiar cambiar en todas las importaciones
 
 
-
-
-
+TEMA 6 CARRITO DE COMPRAS
 
 
 
