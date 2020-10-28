@@ -24,7 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # Declarando las URL's de la Aplicacion Productos
-    path('productos/', include('products.urls'))
+    path('productos/', include('products.urls')),
+    
+    # Declarando las URL's de la Aplicacion Carrito de compras
+    path('carrito/', include('carts.urls'))
 
 ]
 

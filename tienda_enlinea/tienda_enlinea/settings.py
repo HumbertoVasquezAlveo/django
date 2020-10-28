@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'carts',
     'users',
     'products',  #--> le indicamos a python que podemos hacer uso de la aplicacion Products
     'categories',

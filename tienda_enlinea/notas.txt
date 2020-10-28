@@ -272,7 +272,39 @@ cuando se cambia el modelo User por el creado propio se debe cambiar cambiar en 
 
 
 TEMA 6 CARRITO DE COMPRAS
+Se crea el modelo del CARRITO y se agrega al Admin
 
+-- Vista carrito de COMPRAS
+Agregamos la vista cart
+
+-- Sesiones
+ejemplos:
+        #crear una sesion
+        request.session['cart_id'] = '123' #diccionario
+        
+        # Obtener el valor de una sesion
+        valor = request.session.get('cart_id')
+        print(valor)
+        
+        #borrar una sesion
+        request.session['card_id'] = None
+
+-- Crear carrito de compras
+
+
+user = request.user if request.user.is_authenticated else None
+    cart_id = request.session.get('cart_id')
+    
+    if cart_id:
+        # Obtendremos el carrito de la base de datos
+        cart = Cart.objects.get(pk=cart_id)
+    else:
+        cart = Cart.objects.create(user=user)
+       
+    # la session esta almacenando el id del carrito    
+    request.session['cart_id'] = cart.id
+    
+    return render(request, 'carts/cart.html', {
 
 
 
