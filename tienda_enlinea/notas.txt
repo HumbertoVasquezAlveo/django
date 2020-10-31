@@ -307,10 +307,30 @@ user = request.user if request.user.is_authenticated else None
     return render(request, 'carts/cart.html', {
 
 
+-- Obtener o crear un carrito de compras
+codigo borrada para refactorizar
+ if cart_id:
+        # Obtendremos el carrito de la base de datos, filtrando por primary key
+        cart = Cart.objects.get(cart_id=cart_id)
+        #no encontramos ningun carrito
+        if cart is None:     
+            cart = Cart.objects.create(user=user)  
+    else:
+        cart = Cart.objects.create(user=user)
+       
+    # la session esta almacenando el id del carrito    
+    request.session['cart_id'] = cart.cart_id
 
+-- Agregar productos al carrito
 
+A traves de la relacion product
 
+-- Filtros propios
+Generar un  nuevo modulo que se llama templatetags
+crear el archivo product_extras e incluirlo en el template
 
+--Listado de productos
+ Se trabajo el archivo cart.html (template)
 
 
 

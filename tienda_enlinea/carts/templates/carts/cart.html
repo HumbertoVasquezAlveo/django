@@ -1,7 +1,48 @@
+<!-- Este template muestra los productos agregados en el carrito de compras-->
+
 {% extends 'base.html' %}
+{% load product_extras %}
 
 {% block content %}
 
-<h2>Carrito de compras</h2>
-
+    {% if cart.products.exists %}
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- all: obtener todos los productos que se encuentren en la relacion con el carrito de compras-->
+                    {% for product in cart.products.all %}
+                        <tr>
+                            <th>{{ forloop.counter }}</th>
+                            <th>
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" alt="Imagen del producto" width="70" height="70">
+                                {% endif %}
+                            </th>
+                            <th>
+                                <a href="{% url 'products:product' product.slug %}">{{ product.title }}</a>
+                            </th>
+                            <th>1</th>
+                            <th>
+                                <span class="font-weight-bold text-danger">{{ product.price | price_format }}</span>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div clas="col">
+            <p class="h3">Tú carrito de compras está vacío.</p>
+            <a href="{% url 'index' %}">Seguir comprando</a>
+        </div>
+    {% endif %}
 {% endblock %}

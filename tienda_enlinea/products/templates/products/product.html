@@ -19,6 +19,11 @@
     <div class="">
         <p>{{ product.description }}</p>
     </div>
+
+    <!-- llamando a la opcion Agregar al carrito de compras-->
+    <div class="">
+      {% include 'carts/snippets/add.html' %}
+    </div>
 </div>
 
 {% endblock %}

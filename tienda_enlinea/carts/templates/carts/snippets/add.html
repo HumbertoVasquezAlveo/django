@@ -1,0 +1,7 @@
+<!-- Formuluario de de Agregar productos al carrito de compras. Mediante metodo POST-->
+
+<form action="{% url 'carts:add' %}" method="post"><!--formulario apuntando a la vista-->
+    {% csrf_token %}
+    <input type="hidden" name="product_id" value="{{ product.id  }}">
+    <button type="submit" class="btn btn-warning">Agregar al carrito</button>
+</form>

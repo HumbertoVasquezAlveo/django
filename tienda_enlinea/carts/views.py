@@ -5,32 +5,38 @@ from django.shortcuts import render
 
 #Modelos
 from .models import Cart
+from products.models import Product
+
+#Utilidades
+from .utils import get_or_create_cart
+
 
 #funcion del carrito de compras
 def cart(request):
-    
-    #Crear una sesion / la sesion se crea en el objeto request, se envia al cliente y se obtiene en cada peticion
-    #la petecion esta en constante interaccion entre cliente y servidor
-    
-    # si el usuario esta autenticado entinces se obtendra el usuario actual, de lo contrario NONE, puede o no pertenecer
-    # a un usuario. Todo depende si esta autentocado o no.
-    
-    user = request.user if request.user.is_authenticated else None
-    cart_id = request.session.get('cart_id')
-    
-    if cart_id:
-        # Obtendremos el carrito de la base de datos, filtrando por primary key
-        cart = Cart.objects.get(pk=request.session.get('cart_id'))
-    else:
-        cart = Cart.objects.create(user=user)
-       
-    # la session esta almacenando el id del carrito    
-    request.session['cart_id'] = cart.id
+    cart = get_or_create_cart(request)
     
     return render(request, 'carts/cart.html', {
-        
+        # Enviar el objeto cart al template, para visualizar los productos en el carrito 
+        'cart':cart
     })
+
+#funcion para agregar productos al carrito de compras    
+def add(request):
+    #obteniendo el carrito de compras
+    cart = get_or_create_cart(request)
+    product = Product.objects.get(pk=request.POST.get('product_id')) # product_id = llave
     
-    # Mencion:
-    # Si la peticion se encuentra en la sesion, entonces obtendremos el carrito de compras de la Base de Datos
-    # de lo contrario, creamos un nuevo carrito.
+    #Agregar productos al carrito de compras(modelo cart posee una relacion a productos ManyToMany)
+    cart.products.add(product)
+    
+    return render(request, 'carts/add.html', {
+        #contexto
+        'product':product
+    })
+
+# Funcion para eliminar productos del carrito de compras    
+def remove(request):
+    cart = get_or_create_cart(request)
+    product = Product.objects.get(pk=request.POST.get('product_id'))
+    
+    
