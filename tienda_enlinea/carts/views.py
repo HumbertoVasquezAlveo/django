@@ -2,6 +2,7 @@
 
 #Django
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 #Modelos
 from .models import Cart
@@ -39,4 +40,7 @@ def remove(request):
     cart = get_or_create_cart(request)
     product = Product.objects.get(pk=request.POST.get('product_id'))
     
+    # Seleccionamos el objeto a eliminar --> product
+    cart.products.remove(product)
     
+    return redirect('carts:cart')

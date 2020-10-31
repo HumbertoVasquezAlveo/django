@@ -1,0 +1,7 @@
+<!-- Formuluario de eliminacion de productos del carrito de compras. Mediante metodo POST-->
+
+<form action="{% url 'carts:remove' %}" method="post"><!--formulario apuntando a la vista-->
+    {% csrf_token %}
+    <input type="hidden" name="product_id" value="{{ product.id  }}">
+    <button type="submit" class="btn btn-link text-danger" style='padding:0px'>Eliminar</button>
+</form>
